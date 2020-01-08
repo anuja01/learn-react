@@ -1,26 +1,43 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
+const FunctonalComponent = (props) => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>Functional component content : {props.myNname}</div>
+  )
+}
+class ClassComponent extends React.Component {
+  render() {
+    return (
+      <div>
+        <h3>Class component header</h3>
+        <p>Class component content, and below is the clock</p>
+      </div>
+    )
+  }
+}
+class Clock extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = { date: new Date() };
+  }
+  render() {
+    setInterval(() => {
+      this.setState({ date: new Date() })
+    }, 1000)
+    return (
+      <div>{this.state.date.toLocaleTimeString()}</div>
+    )
+  }
+
+}
+function App() {
+
+  return (
+    <div style={{ display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
+      <FunctonalComponent myNname="Anuja" />
+      <ClassComponent />
+      <Clock />
     </div>
   );
 }
-
 export default App;
