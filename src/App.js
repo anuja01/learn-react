@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 // with arrow functions
 const eventHandler = (event, param, param2) => {
-  console.log(event)
-  console.log(param)
-  console.log(param2)
+  console.log('event handler 1 : ', event)
+  console.log('param1: ', param)
+  console.log('param2: ', param2)
 }
 
 function eventHandler2(event, param, param2) {
-  console.log(event)
+  console.log('event handler 2 : ', event)
   console.log('param1', param)
   console.log('param2', param2)
 }
