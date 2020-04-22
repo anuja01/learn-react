@@ -17,6 +17,7 @@ class ControlledForm extends Component {
     this.setState({selectValue: e.target.value})
   }
   onSubmitValue(e) {
+    console.log('submit event: ', e)
     alert(`submitted value: ${this.state.value}, selected fruit: ${this.state.selectValue}`)
     e.preventDefault()
   }
@@ -28,7 +29,7 @@ class ControlledForm extends Component {
         <form onSubmit={this.onSubmitValue}>
           name: <input type="text" name="name" value={this.state.value} onChange={this.handleOnChange}></input>
           Pick your fruit:
-          <select value={this.state.selectValue} onChange={this.setSelectValue}>
+          <select onChange={this.setSelectValue}>
             <option value="grapefruit">Grapefruit</option>
             <option value="lime">Lime</option>
             <option value="coconut">Coconut</option>
